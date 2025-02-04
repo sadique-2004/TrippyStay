@@ -25,34 +25,77 @@ body{
     color: #222222 !important;
 }
 
-/* footer */
-.f-info-links a{
-    text-decoration: none;
-    color: #222222 ;
-}
-.f-info-links a:hover{
-    text-decoration: underline;
-}
-.f-info-links, .f-info-socials, .f-info-brand{
-    width: 100%;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+ /* footer */
+ footer {
+    background-color: #ebebeb;
+    padding: 1.5rem 0;
+    font-family: Arial, sans-serif;
 }
 
-.f-info-socials i{
-    font-size: 1.2rem;
-    margin-right: 1rem;
-}
-.f-info{
-    height: 8rem;
-    background-color: #ebebeb;
+.f-info {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-evenly;
+    align-items: center;
     text-align: center;
+    height: auto;
+    padding: 1rem;
+}
+
+.f-info-socials, .f-info-links, .f-info-brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Social Icons */
+.f-info-socials a {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    color: #222222;
+    transition: color 0.3s ease;
+}
+
+.f-info-socials a:hover {
+    color: #3498db;  /* Hover to blue */
+}
+
+/* Footer Links */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+    margin: 0 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: #3498db;
+}
+
+/* Footer Text */
+.f-info-brand {
+    font-size: 1rem;
+    color: #444444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .f-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .f-info-socials {
+        margin-bottom: 1rem;
+    }
+
+    .f-info-links a {
+        margin: 0.5rem;
+    }
 }
 
 /*  Cards */
