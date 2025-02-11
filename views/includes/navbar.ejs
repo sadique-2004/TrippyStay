@@ -1,19 +1,32 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom  sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
-    <button class="navbar-toggler"
-             type="button" 
-             data-bs-toggle="collapse" 
-             data-bs-target="#navbarNavAltMarkup"
-           >
+<nav class="navbar navbar-expand-md shadow-sm sticky-top">
+  <div class="container">
+    <!-- Brand Logo -->
+    <a class="navbar-brand d-flex align-items-center fw-bold" href="/listings">
+      <i class="fa-solid fa-plane-departure me-1 fs-4"></i> 
+      <span class="fs-5 professional-font">TrippyStay</span>
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/listings">All listings</a>
-        <a class="nav-link" href="/listings/new">Add new listings</a>
 
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse justify-content-md-between bg-white p-3 p-md-0" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-md-4 text-center text-md-start">
+        <a class="nav-link fw-semibold px-3 " href="/listings">Explore</a>
+      </div>
+
+      <div class="navbar-nav ms-auto d-flex align-items-center gap-3 flex-column flex-md-row text-center">
+        <a class="nav-link fw-semibold px-3" href="/listings/new">Add Listing</a>
+
+        <% if (!currentUser) { %>
+          <a class="btn btn-outline-primary fw-semibold px-4 py-2 rounded-pill" href="/signup">Sign Up</a>
+          <a class="btn btn-primary text-white fw-semibold px-4 py-2 rounded-pill" href="/login">Login</a>
+        <% } else { %>
+          <a class="btn btn-danger  text-white fw-semibold px-4 py-2 rounded-pill" href="/logout">Logout</a>
+        <% } %>
       </div>
     </div>
+  </div>
 </nav>

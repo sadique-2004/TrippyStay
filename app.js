@@ -41,13 +41,17 @@ const sessionOptions = {
     secret: 'my-super-secret-key',
     resave: false,
     saveUninitialized: true,
-    cookie: { 
+    cookie: {
         httpOnly: true, // Prevents client-side JS from accessing the cookie
-        expires: Date.now() + 7 * 24 * 60 * 60 * 1000  , // 7 days
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7 days
         maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     },
 }
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+
+});
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -59,9 +63,10 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req,res,next)=>{
+app.use((req, res, next) => {
     res.locals.sucess = req.flash('sucess');
     res.locals.error = req.flash('error');
+    res.locals.currentUser = req.user;  // Passing the current user to all templates for display purposes
     next(); //  next is used to pass control to the next middleware function
 })
 
