@@ -1,31 +1,102 @@
+<style>
+  .btn-search {
+  background-color: #fe424d;
+  color: white;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-search:hover {
+  background-color: #d93842;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.btn-search i {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.search-inp {
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #fe424d;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-inp:focus {
+  outline: none !important;
+  box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
+  border-color: #fe424d;
+}
+
+.navbar-toggler{
+  border: 1px solid #fe424d;
+  border-radius: 25px;
+  padding: 0.3rem .5rem;
+  transition: all 0.3s ease-in-out;
+  /* background-color: #fe424d;s */
+}
+.navbar-toggler:focus, 
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: 0 0 5px rgba(254, 66, 77, 0.5); /* Soft red glow */
+  border: 1px solid #fe424d !important;
+}
+.signup-btn:hover {
+  /* background-color: #d93842; */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  color: white;
+
+}
+
+
+
+</style>
+
+
 <nav class="navbar navbar-expand-md shadow-sm sticky-top">
   <div class="container">
     <!-- Brand Logo -->
     <a class="navbar-brand d-flex align-items-center fw-bold" href="/listings">
-      <i class="fa-solid fa-plane-departure me-1 fs-4"></i> 
+      <i class="fa-solid fa-plane-departure me-1 fs-4"></i>
       <span class="fs-5 professional-font">TrippyStay</span>
     </a>
 
     <!-- Mobile Toggle Button -->
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler border-0 " type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon "></span>
     </button>
 
     <!-- Navbar Links -->
     <div class="collapse navbar-collapse justify-content-md-between bg-white p-3 p-md-0" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-md-4 text-center text-md-start">
-        <a class="nav-link fw-semibold px-3 " href="/listings">Explore</a>
+        <a class="nav-link fw-semibold px-3 " href="/listings">Discover Stays</a>
       </div>
 
+
+      <form class="navbar-nav ms-auto d-flex flex-column flex-md-row align-items-center mx-auto "
+            role="search"
+            action="/listings"
+            method="GET">
+        <input class="form-control me-2 search-inp" type="search" name="location" placeholder="Explore destinations" aria-label="Search">
+        <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+
+
       <div class="navbar-nav ms-auto d-flex align-items-center gap-3 flex-column flex-md-row text-center">
-        <a class="nav-link fw-semibold px-3" href="/listings/new">Add Listing</a>
+        <a class="nav-link fw-semibold px-3" href="/listings/new">List Your Property</a>
 
         <% if (!currentUser) { %>
-          <a class="btn btn-outline-primary fw-semibold px-4 py-2 rounded-pill" href="/signup">Sign Up</a>
-          <a class="btn btn-primary text-white fw-semibold px-4 py-2 rounded-pill" href="/login">Login</a>
-        <% } else { %>
-          <a class="btn btn-danger  text-white fw-semibold px-4 py-2 rounded-pill" href="/logout">Logout</a>
-        <% } %>
+          <a class="btn btn-outline-warning fw-semibold px-4 py-2 rounded-pill signup-btn" href="/signup">Join TrippyStay</a>
+          <a class="btn btn-warning text-white fw-semibold px-4 py-2 rounded-pill signup-btn" href="/login">Sign In</a>
+          <% } else { %>
+            <a class="btn btn-danger  text-white fw-semibold px-4 py-2 rounded-pill" href="/logout">Logout</a>
+            <% } %>
       </div>
     </div>
   </div>

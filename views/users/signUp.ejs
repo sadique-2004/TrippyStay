@@ -1,54 +1,111 @@
 <% layout('/layouts/boilerplate') -%>
 
-    <div class="row">
-        <div class="col-6 offset-3">
-            <form action="/signup" method="post" class="needs-validation" novalidate>
-                <h2>Sign Up on TrippyStay</h2>
+    <style>
+        .search-inp {
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #fe424d;
+            transition: all 0.3s ease-in-out;
+        }
 
-                <div class="mb-3">
-                    <label for="username" class="form-label">username</label>
-                    <input name="username" type="text" placeholder="sadique_dev" id="username"
-                        class="form-control" required>
+        .search-inp:focus {
+            outline: none !important;
+            box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
+            border-color: #fe424d;
+        }
 
-                    <div class="invalid-feedback">
-                        Please enter valid username !
+        .signup-button {
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease-in-out;
+            background-color: #fe424d;
+            color: white;
+        }
+
+        .signup-button:hover {
+            background-color: #d93842;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        .signup-link {
+            color: rgb(99, 99, 238);
+        }
+
+
+
+     
+        input[type="checkbox"].form-check-input {
+    accent-color: #c8c016 !important;
+}
+
+
+
+    </style>
+
+    <div class="row justify-content-center align-items-center max-vh-100 my-3">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0 rounded-3 p-4 text-center">
+
+                <!-- Welcome Image -->
+                <img src="/assets/welcome-cats.svg" alt="Welcome to TrippyStay" class="img-fluid mx-auto"
+                    style="max-width: 200px;">
+
+                <h2 class="mt-3 fw-bold">Join TrippyStay</h2>
+                <p class="text-muted">Sign up and start discovering amazing places</p>
+
+                <!-- Signup Form -->
+                <form action="/signup" method="post" class="needs-validation text-start" novalidate>
+
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label fw-semibold">Username :</label>
+                        <input name="username" type="text" id="username" class="form-control search-inp"
+                            placeholder="Choose a username" required>
+                        <div class="invalid-feedback">Please enter a valid username.</div>
                     </div>
 
-                    <div class="valid-feedback">
-                        Title Looks good!
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Email :</label>
+                        <input type="email" id="email" name="email" class="form-control search-inp"
+                            placeholder="Enter your email" required>
+                        <div class="invalid-feedback">Please enter a valid email.</div>
                     </div>
 
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" placeholder="sadique@gmail.com" class="form-control" id="email" name="email"
-                        required>
-
-                    <div class="invalid-feedback">
-                        Please enter valid email !
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-semibold">Password :</label>
+                        <input type="password " id="password" name="password" class="form-control search-inp"
+                            placeholder="Create a password" required>
+                        <div class="invalid-feedback">Please enter a password.</div>
                     </div>
 
-                    <div class="valid-feedback">
-                        Email looks good!
+                    <!-- Terms and Conditions -->
+                    <div class="form-check mb-3 terms-container">
+                        <input class="form-check-input" type="checkbox" value="" id="termsCheck" required>
+                        <label class="form-check-label" for="termsCheck">
+                            I agree to the <span class="brand-name">Trippy-Stay</span>
+                            <a href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                            and
+                            <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                        </label>
+                        <div class="invalid-feedback">You must agree to the Terms of Service and Privacy Policy before
+                            submitting.</div>
                     </div>
 
-                </div>
 
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn signup-button w-100 py-2">Sign Up</button>
 
-                    <div class="invalid-feedback">
-                        Please enter a password! 
-                    </div>
-
-                    <div class="valid-feedback">
-                        Password looks good! 
-                    </div>
-
-                </div>
-                <button type="submit" class="btn btn-success ">Sign Up</button </form>
-
+                    <!-- Login Link -->
+                    <p class="mt-3 text-muted">
+                        Already have an account?
+                        <a href="/login" class="text-decoration-none fw-semibold signup-link">Sign In</a>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>

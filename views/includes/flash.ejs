@@ -1,8 +1,22 @@
+<style>
+    .btn-close-err-focus:focus{
+        outline: none !important;
+        box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
+        border-color: #fe424d;
+    }
+    .btn-close-sus-focus:focus{
+        outline: none !important;
+        box-shadow: 0 0 5px rgba(121, 201, 134, 0.5);
+        border-color: #7ccd7e;
+    }
+</style>
+
+
 <% if(sucess && sucess.length){  %> 
     <div class="alert alert-success mt-4 alert-dismissible fade show col-6 offset-3" role="alert">
        
-         <%= sucess %>
-         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         <%- sucess %>
+         <button type="button" class="btn-close btn-close-sus-focus" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <% } %>
 
@@ -10,6 +24,6 @@
     <div class="alert alert-danger mt-4 alert-dismissible fade show col-6 offset-3" role="alert">
        
          <%= error %>
-         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         <button type="button" class="btn-close btn-close-err-focus" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <% } %>

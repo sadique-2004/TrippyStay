@@ -1,93 +1,112 @@
 <% layout('/layouts/boilerplate') -%>
+    <style>
+        .pub-btn {
+            background-color: #FF6B6B;
+            border-color: #FF6B6B;
+            font-weight: bold;
+            color: white;
+        }
 
-    <div class="row">
-        <div class="col-8 offset-2">
-<!-- <br><br> -->
-            <body>
-                <h3>Create a new listing</h3>
-                <br>
-                <form method="post" action="/listings" class=" needs-validation" novalidate>
+        .pub-btn:hover {
+            background-color: #FF6B6B;
+            border-color: #FF6B6B;
+            font-weight: bold;
+            color: white;
+        }
 
+        .search-inp:focus {
+            outline: none !important;
+            box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
+            border-color: #fe424d;
+        }
+
+        .search-inp-des {
+            border-radius: 10px 100px / 120px;
+            border: 1px solid #fe424d;
+        }
+        .search-inp-des:focus {
+            outline: none !important;
+            box-shadow: 0 0 5px rgba(254, 66, 77, 0.5);
+            border-color: #fe424d;
+        }
+    </style>
+
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center mt-3 mb-3 ">
+        <div class="row shadow-lg p-4 rounded-3 bg-white">
+            
+            <!-- Left Section (Image) -->
+            <div class="col-md-5 d-flex align-items-center justify-content-center">
+                <img src="/assets/listing-illustration.svg" alt="Create Listing" class="img-fluid"
+                    style="max-width: 300px;">
+            </div>
+
+            <!-- Right Section (Form) -->
+            <div class="col-md-7">
+                
+                <h2 class="fw-bold text-center mb-3">Add Your Place</h2>
+                <form method="post" action="/listings" class="needs-validation" enctype="multipart/form-data"
+                    novalidate>
+
+                    <!-- Title -->
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input name="listing[title]" type="text" placeholder="Add a catchey title" class="form-control" required>
-
-                        <div class="invalid-feedback">
-                            Please enter Title
-                        </div>
-
-                        <div class="valid-feedback">
-                            Title Looks good!
-                        </div>
-
+                        <label for="title" class="form-label fw-semibold">Title</label>
+                        <input name="listing[title]" type="text" class="form-control search-inp"
+                            placeholder="Add a catchy title" required>
+                        <div class="invalid-feedback">Please enter a title.</div>
                     </div>
 
+                    <!-- Description -->
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea name="listing[description]" class="form-control" required></textarea>
-
-                        <div class="invalid-feedback">
-                            Please enter a short Description
-                        </div>
-
-                    
+                        <label for="description" class="form-label fw-semibold">Description</label>
+                        <textarea name="listing[description]" class="form-control search-inp-des"
+                            placeholder="Write a short description..." rows="3" required></textarea>
+                        <div class="invalid-feedback">Please enter a short description.</div>
                     </div>
 
-                    <!-- <div class="mb-3">
-                        <label for="title" class="form-label">Phone no :</label>
-                        <input name="phone number" type="text" placeholder="your contact no" class="form-control" >
-
-                        <div class="invalid-feedback">
-                            Please enter Title
-                        </div>
-
-                        <div class="valid-feedback">
-                            Title Looks good!
-                        </div>
-                    </div> -->
-
+                    <!-- Image Upload -->
                     <div class="mb-3">
-                        <label for="image" class="form-label">Image URL/link </label>
-                        <input name="listing[image]" type="text" placeholder="Enter image URL.Link"
-                            class="form-control">
+                        <label for="image" class="form-label fw-semibold">Upload Image</label>
+                        <input name="listing[image]" type="file" class="form-control search-inp" required>
+                        <div class="invalid-feedback">Please upload a valid image.</div>
                     </div>
 
+                    <!-- Price & Country -->
                     <div class="row">
-                        <div class="mb-3 col-md-4">
-                            <label for="price" class="form-label ">Price</label>
-                            <input name="listing[price]"  placeholder="12,00" class="form-control" required>
-
-                            <div class="invalid-feedback">
-                                Price should be Valid
-                            </div>
-
+                        <div class="col-md-6 mb-3">
+                            <label for="price" class="form-label fw-semibold">Price</label>
+                            <input name="listing[price]" type="text" class="form-control search-inp"
+                                placeholder="₹12,000" required>
+                            <div class="invalid-feedback">Please enter a valid price.</div>
                         </div>
 
-                        <div class="mb-3 col-md-8">
-                            <label for="country" class="form-label ">Country</label>
-                            <input name="listing[country]" type="text" placeholder="India" class="form-control" required>
-
-                            <div class="invalid-feedback">
-                                Please provide a valid Country.
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="country" class="form-label fw-semibold">Country</label>
+                            <input name="listing[country]" type="text" class="form-control search-inp"
+                                placeholder="India" required>
+                            <div class="invalid-feedback">Please enter a valid country.</div>
                         </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="mb-3">
+                        <label for="location" class="form-label fw-semibold">Location</label>
+                        <input name="listing[location]" type="text" class="form-control search-inp" placeholder="Bhopal"
+                            required>
+                        <div class="invalid-feedback">Please enter a valid location.</div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="location" class="form-label">Location</label>
-                        <input name="listing[location]" type="text" placeholder="Bhopal" class="form-control" required>
-
-                        <div class="invalid-feedback">
-                            Please provide a valid Location.
-                        </div>
-
+                        <label for="contact" class="form-label fw-semibold">Contact Number</label>
+                        <input name="listing[contact]" type="text" class="form-control search-inp" id="contact" 
+                            placeholder="9876543210" required pattern="[6-9]\d{9}" maxlength="10">
+                        <div class="invalid-feedback">Please enter a valid 10-digit contact number.</div>
                     </div>
 
-                    <!-- <div class="d-grid gap-2 mb-4 add-btn"> -->
-                        <button class="btn btn-primary add-btn">Add</button>
-                    <!-- </div> -->
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn w-100 py-2 pub-btn">Publish place</button>
+
                 </form>
-            </body>
-            <!-- <br><br><br> -->
+            </div>
+
         </div>
     </div>

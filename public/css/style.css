@@ -271,21 +271,39 @@ footer {
 }
 
 .listing-info {
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
+    background: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .listing-title {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 5px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    transition: color 0.3s ease-in-out;
+}
+
+.listing-title:hover {
+    color: #007bff;
 }
 
 .listing-price {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-top: 5px;
 }
+
 
 @media (max-width: 768px) {
     .hero-section {
@@ -305,4 +323,44 @@ footer {
         font-size: 0.9rem;
         padding: 6px 12px;
     }
+}
+
+
+
+
+/* <!-- Terms and Conditions --> */
+
+
+.form-check-input {
+    accent-color: #c8c016 !important; /* Customize checkbox color */
+    transform: scale(1.2) !important; /* Slightly enlarge the checkbox */
+    cursor: pointer !important;
+    border: #dc3545 1px solid !important;
+}
+
+.form-check-label {
+    font-size: 14px;
+    color: #333;
+}
+
+.form-check-label a {
+    color: #eb6974; /* Bootstrap primary blue */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-check-label a:hover {
+    text-decoration: underline;
+}
+
+.brand-name {
+    font-weight: 600;
+    color: #fe424d;
+    font: 800 0.9rem 'Poppins', sans-serif;
+}
+
+.invalid-feedback {
+    font-size: 13px;
+    color: #dc3545; /* Bootstrap danger color */
+    margin-top: 5px;
 }
